@@ -3,6 +3,7 @@ import AdvancedImageFileConverter from "@/app/modules/tools/AdvanceImageConverte
 import AgeCalculator from "@/app/modules/tools/AgeCalci";
 import ImageCompressor from "@/app/modules/tools/ImageCompressor";
 import ImageResizer from "@/app/modules/tools/ImageResizer";
+import { ImagesToPDFConverter } from "@/app/modules/tools/ImageToPDF";
 import ImageFileConverter from "@/app/modules/tools/ImageTypeConverter";
 import { JokeFetcher } from "@/app/modules/tools/JokeFectcher";
 import LoanCalculator from "@/app/modules/tools/LoanCalci";
@@ -63,6 +64,7 @@ const page = ({ params }) => {
     "trivia-quiz": <TriviaQuiz />,
     "image-converter": <ImageFileConverter />,
     "advanced-image-converter": <AdvancedImageFileConverter />,
+    "image-to-pdf-converter" : <ImagesToPDFConverter />
   };
 
   return (

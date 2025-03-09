@@ -10,6 +10,7 @@ import {
   HandCoins,
   Laugh,
   Drama,
+  Dock,
 } from "lucide-react";
 
 export const categories = [
@@ -74,23 +75,25 @@ export const categories = [
       {
         name: "Image Compressor",
         description: "Compress images while maintaining quality",
-        popularity: 91,
+        popularity: 98,
         slug: "image-compressor",
         icon: Image,
       },
       {
         name: "Image Converter",
-        description: "Multi Tool converts your image files online. Amongst many others, we support PNG, JPG, WebP, GIF, BMP, AVIF, and SVG.",
+        description:
+          "Multi Tool converts your image files online. Amongst many others, we support PNG, JPG, WebP, GIF, BMP, AVIF, and SVG.",
         popularity: 99,
         slug: "image-converter",
         icon: Image,
       },
       {
-        name: "Advanced Image Converter",
-        description: "Multi Tool converts your image files online. Amongst many others, we support PNG, JPG, WebP, GIF, BMP, AVIF, and SVG.",
-        popularity: 99,
-        slug: "advanced-image-converter",
-        icon: Image,
+        name: "Image to PDF Converter",
+        description:
+          "Easily convert your image files into a PDF document. Supports multiple image formats including PNG, JPG, JPEG, and more.",
+        popularity: 99, // You can adjust this based on the tool's popularity
+        slug: "image-to-pdf-converter",
+        icon: Dock, // Replace this with your actual icon component if needed
       },
     ],
   },
@@ -101,7 +104,7 @@ export const categories = [
       {
         name: "Todo App",
         description: "Manage your tasks efficiently",
-        popularity: 87,
+        popularity: 95,
         slug: "todo-app",
         icon: ListTodo,
       },
