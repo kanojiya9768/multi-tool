@@ -11,7 +11,8 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Link from "next/link";
 import { categories } from "@/json/tools";
-import { useState } from "react";
+import { useMemo, useState } from "react";
+import { useSearchParams } from "next/navigation";
 
 const container = {
   hidden: { opacity: 0 },
@@ -30,6 +31,11 @@ const item = {
 
 export function SearchTools() {
   const [searchQuery, setSearchQuery] = useState("");
+  const searchParams = useSearchParams();
+
+  const tabActiveCategory = useMemo(() => {
+    return searchParams?.get("ct");
+  }, [searchParams]);  
 
   // Function to handle the search query change
   const handleSearch = (e) => {
@@ -38,8 +44,10 @@ export function SearchTools() {
 
   // Filter tools based on the search query
   const filteredTools = categories.flatMap((category) =>
-    category.tools.filter((tool) =>
-      tool.name.toLowerCase().includes(searchQuery) || tool.description.toLocaleLowerCase().includes(searchQuery)
+    category.tools.filter(
+      (tool) =>
+        tool.name.toLowerCase().includes(searchQuery) ||
+        tool.description.toLocaleLowerCase().includes(searchQuery)
     )
   );
 
@@ -70,7 +78,7 @@ export function SearchTools() {
           </div>
         </div>
 
-        <Tabs defaultValue={"All"} className="space-y-8 w-full">
+        <Tabs defaultValue={tabActiveCategory || "All"} className="space-y-8 w-full">
           <div className="w-full overflow-auto">
             <TabsList className="bg-background/50 backdrop-blur-sm flex min-w-max">
               {/* Map over categories and add an "All" tab */}

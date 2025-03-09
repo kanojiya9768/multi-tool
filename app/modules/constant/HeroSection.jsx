@@ -41,7 +41,7 @@ export const HeroSection = () => {
           >
             Get Started <ArrowRight className="ml-2 h-4 w-4" />
             <Link
-              href={"#BrowseBycategory"}
+              href={"/tools/explore"}
               className="absolute inset-0"
             ></Link>
           </Button>

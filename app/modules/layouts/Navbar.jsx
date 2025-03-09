@@ -38,10 +38,7 @@ export const Navbar = () => {
               className="primary-gradient hover:opacity-90 relative"
             >
               Explore <ArrowRight className="h-4 w-4" />
-              <Link
-                href={"/#BrowseBycategory"}
-                className="absolute inset-0"
-              ></Link>
+              <Link href={"/tools/explore"} className="absolute inset-0"></Link>
             </Button>
           </motion.div>
         </div>

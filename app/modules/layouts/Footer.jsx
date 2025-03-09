@@ -32,7 +32,7 @@ export function Footer() {
                 {categories.map((category, index) => (
                   <li key={index}>
                     <a
-                      href="/#BrowseBycategory"
+                      href={`/tools/explore?ct=${category?.title}`}
                       className="text-muted-foreground hover:text-primary transition-colors"
                     >
                       {category.title}
