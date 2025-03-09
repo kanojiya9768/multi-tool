@@ -1,8 +1,13 @@
 import ComplexCalculator from "@/app/modules/tools/AdvanceCalci";
+import AdvancedImageFileConverter from "@/app/modules/tools/AdvanceImageConverter";
+import AgeCalculator from "@/app/modules/tools/AgeCalci";
 import ImageCompressor from "@/app/modules/tools/ImageCompressor";
 import ImageResizer from "@/app/modules/tools/ImageResizer";
+import ImageFileConverter from "@/app/modules/tools/ImageTypeConverter";
+import { JokeFetcher } from "@/app/modules/tools/JokeFectcher";
 import LoanCalculator from "@/app/modules/tools/LoanCalci";
 import PasswordGenerator from "@/app/modules/tools/PasswordGenerater";
+import TriviaQuiz from "@/app/modules/tools/Quiz";
 import TextCaseConverter from "@/app/modules/tools/TextCaseConverter";
 import TodoApp from "@/app/modules/tools/Todo";
 import UnitConverter from "@/app/modules/tools/UnitConverter";
@@ -20,6 +25,11 @@ const page = ({ params }) => {
     "image-resizer" : <ImageResizer />,
     "image-compressor" : <ImageCompressor />,
     "todo-app" : <TodoApp />,
+    "age-calculator" : <AgeCalculator />,
+    "random-joke-generator" : <JokeFetcher />,
+    "trivia-quiz" : <TriviaQuiz />,
+    "image-converter" : <ImageFileConverter />,
+    "advanced-image-converter" : <AdvancedImageFileConverter />
   }
 
   return <div className="pt-32 w-full h-full">

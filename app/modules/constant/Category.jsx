@@ -68,7 +68,7 @@ export function Category() {
                           <tool.icon className="h-5 w-5" />
                           <CardTitle>{tool.name}</CardTitle>
                         </div>
-                        <CardDescription>{tool.description}</CardDescription>
+                        <CardDescription className="line-clamp-1">{tool.description}</CardDescription>
                       </CardHeader>
                       <CardContent>
                         <Link href={`/tools/${tool.slug}`}>

@@ -6,6 +6,10 @@ import {
   Coins,
   Image,
   ListTodo,
+  Info,
+  HandCoins,
+  Laugh,
+  Drama,
 } from "lucide-react";
 
 export const categories = [
@@ -74,6 +78,20 @@ export const categories = [
         slug: "image-compressor",
         icon: Image,
       },
+      {
+        name: "Image Converter",
+        description: "Multi Tool converts your image files online. Amongst many others, we support PNG, JPG, WebP, GIF, BMP, AVIF, and SVG.",
+        popularity: 99,
+        slug: "image-converter",
+        icon: Image,
+      },
+      {
+        name: "Advanced Image Converter",
+        description: "Multi Tool converts your image files online. Amongst many others, we support PNG, JPG, WebP, GIF, BMP, AVIF, and SVG.",
+        popularity: 99,
+        slug: "advanced-image-converter",
+        icon: Image,
+      },
     ],
   },
   {
@@ -86,6 +104,42 @@ export const categories = [
         popularity: 87,
         slug: "todo-app",
         icon: ListTodo,
+      },
+    ],
+  },
+  {
+    title: "Data/Info",
+    icon: Info,
+    tools: [
+      {
+        name: "Age Calculator",
+        description:
+          "A tool to calculate and determine your exact age in years, months, days, and more. Perfect for keeping track of your milestones and planning ahead.",
+        popularity: 87,
+        slug: "age-calculator",
+        icon: HandCoins,
+      },
+      {
+        name: "Joke Generator",
+        description:
+          "A fun tool that generates random jokes to make you laugh. Perfect for lightening up your day or sharing with friends.",
+        popularity: 87,
+        slug: "random-joke-generator",
+        icon: Laugh,
+      },
+    ],
+  },
+  {
+    title: "Fun/Entertainment",
+    icon: Drama,
+    tools: [
+      {
+        name: "Trivia Quiz",
+        description:
+          "A tool to calculate and determine your exact age in years, months, days, and more. Perfect for keeping track of your milestones and planning ahead.",
+        popularity: 87,
+        slug: "trivia-quiz",
+        icon: Drama,
       },
     ],
   },
