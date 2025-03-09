@@ -11,7 +11,7 @@ export const HeroSection = () => {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="container mx-auto px-4 text-center h-[60dvh] md:h-[80dvh] z-10 flex flex-col justify-center items-center  relative overflow-hidden"
+        className="mx-auto px-4 text-center bg-gradient-to-br from-primary/40 via-purple-500/5 to-blue-500/5 animate-gradient h-[100dvh] md:h-[80dvh] z-10 flex flex-col justify-center items-center  relative overflow-hidden"
       >
         <motion.h1
           initial={{ opacity: 0, y: 20 }}

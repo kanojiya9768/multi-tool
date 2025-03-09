@@ -29,9 +29,8 @@ const item = {
 
 export function Category() {
   return (
-    <div className="px-4 sm:px-10 lg:px-20" id="BrowseBycategory">
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-purple-500/5 to-blue-500/5 animate-gradient" />
-      <div className="container mx-auto px-4 relative z-10">
+    <div className=" bg-white" id="BrowseBycategory">
+      <div className="container mx-auto relative z-10 px-4 sm:px-10 lg:px-20">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -39,19 +38,22 @@ export function Category() {
         >
           Browse by Category
         </motion.h2>
-        <Tabs defaultValue={categories[0]?.title} className="space-y-8">
-          <TabsList className="mb-8 p-1 bg-background/50 backdrop-blur-sm w-full  flex flex-wrap">
-            {categories.map((category, index) => (
-              <TabsTrigger
-                key={index}
-                value={category.title}
-                className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-primary data-[state=active]:to-purple-600 data-[state=active]:text-white"
-              >
-                <category.icon className="h-4 w-4 mr-2" />
-                {category.title}
-              </TabsTrigger>
-            ))}
-          </TabsList>
+        <Tabs defaultValue={categories[0]?.title} className="space-y-8 w-full">
+          <div className="w-full overflow-auto">
+            <TabsList className="bg-background/50 backdrop-blur-sm flex  min-w-max">
+              {categories.map((category, index) => (
+                <TabsTrigger
+                  key={index}
+                  value={category.title}
+                  className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-primary data-[state=active]:to-purple-600 data-[state=active]:text-white"
+                >
+                  <category.icon className="h-4 w-4 mr-2" />
+                  {category.title}
+                </TabsTrigger>
+              ))}
+            </TabsList>
+          </div>
+
           {categories.map((category, index) => (
             <TabsContent key={index} value={category.title}>
               <motion.div
@@ -68,7 +70,9 @@ export function Category() {
                           <tool.icon className="h-5 w-5" />
                           <CardTitle>{tool.name}</CardTitle>
                         </div>
-                        <CardDescription className="line-clamp-1">{tool.description}</CardDescription>
+                        <CardDescription className="line-clamp-1">
+                          {tool.description}
+                        </CardDescription>
                       </CardHeader>
                       <CardContent>
                         <Link href={`/tools/${tool.slug}`}>

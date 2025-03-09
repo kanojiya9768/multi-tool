@@ -2,7 +2,6 @@ import { Category } from "./modules/constant/Category";
 import { HeroSection } from "./modules/constant/HeroSection";
 import { PopularTools } from "./modules/constant/Polulartools";
 import ContactUs from "./modules/tools/ContactUs";
-import ImageFileConverter from "./modules/tools/ImageTypeConverter";
 
 export default function Home() {
   return (
@@ -11,7 +10,6 @@ export default function Home() {
       <PopularTools />
       <Category />
       <ContactUs />
-      <ImageFileConverter />
     </div>
   );
 }

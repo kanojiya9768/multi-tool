@@ -34,7 +34,7 @@ const item = {
 
 export function PopularTools() {
   return (
-    <section className="pt-40 pb-20 container mx-auto px-4 sm:px-10 lg:px-20">
+    <section className="py-20 container mx-auto px-4 sm:px-10 lg:px-20">
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
