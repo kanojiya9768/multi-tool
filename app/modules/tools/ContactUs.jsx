@@ -32,6 +32,7 @@ import {
 import { motion } from "framer-motion";
 import { useTransition } from "react";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 
 const reasons = [
   "General Inquiry",
@@ -179,6 +180,7 @@ const ContactIllustration = () => (
 );
 
 export default function ContactUs() {
+  const { push } = useRouter();
   const [isPending, startTransition] = useTransition();
   const form = useForm({
     resolver: zodResolver(insertContactMessageSchema),
@@ -197,16 +199,15 @@ export default function ContactUs() {
     startTransition(async () => {
       try {
         const response = await axios.post("/api/send-contact", data);
-        if(response?.status==200){
-          
+        if (response?.status == 200) {
           form.reset();
+          push("/thank-you");
         }
       } catch (error) {
         console.log(error);
       }
     });
   };
-  
 
   return (
     <div className="bg-gradient-to-br from-background to-background/95 container mx-auto">

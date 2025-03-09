@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export function Footer() {
   return (
-    <section className="pt-10">
+    <section>
       {/* Footer */}
       <footer className="py-12 relative overflow-hidden px-4 sm:px-10 lg:px-20">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/40 via-purple-500/5 to-blue-500/5 animate-gradient" />
