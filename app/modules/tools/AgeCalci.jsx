@@ -219,9 +219,9 @@ export default function AgeCalculator() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="flex items-center justify-center min-h-screen z-50 bg-white"
+      className="min-h-full pb-20 bg-gradient-to-br from-background to-background/95 p-8"
     >
-      <Card className="w-full max-w-md">
+      <Card className="w-full max-w-4xl mx-auto">
         <CardHeader>
           <CardTitle className="text-2xl font-bold primary-text-gradient">Age Calculator</CardTitle>
         </CardHeader>
@@ -245,7 +245,7 @@ export default function AgeCalculator() {
                 aria-label="Date of Birth"
               />
               {isDatePickerOpen && (
-                <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-300 rounded-lg shadow-lg p-4">
+                <div className="absolute z-20 bg-white top-full left-0 right-0 mt-1  border border-gray-300 rounded-lg shadow-lg p-4">
                   <div className="flex justify-between mb-2">
                     <div className="flex space-x-2">
                       <select
@@ -313,7 +313,7 @@ export default function AgeCalculator() {
                 aria-label="Current Date"
               />
               {isCurrentDatePickerOpen && (
-                <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-300 rounded-lg shadow-lg p-4">
+                <div className="absolute z-20 top-full left-0 right-0 mt-1 bg-white border border-gray-300 rounded-lg shadow-lg p-4">
                   <div className="flex justify-between mb-2">
                     <div className="flex space-x-2">
                       <select

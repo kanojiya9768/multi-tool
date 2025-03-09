@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { useState, useCallback } from "react";
 import { useDropzone } from "react-dropzone";
 import { Card, CardContent } from "@/components/ui/card";
@@ -15,13 +15,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Upload, FileType, Download, Loader2 } from "lucide-react";
 
 const supportedConversions = {
-  'png': ['jpg', 'webp', 'gif', 'bmp', 'avif'],
-  'jpg': ['png', 'webp', 'gif', 'bmp', 'avif'],
-  'webp': ['png', 'jpg', 'gif', 'bmp', 'avif'],
-  'gif': ['png', 'jpg', 'webp', 'bmp', 'avif'],
-  'bmp': ['png', 'jpg', 'webp', 'gif', 'avif'],
-  'avif': ['png', 'jpg', 'webp', 'gif', 'bmp'],
-  'svg': ['png', 'jpg', 'webp']
+  png: ["jpg", "webp", "gif", "bmp", "avif"],
+  jpg: ["png", "webp", "gif", "bmp", "avif"],
+  webp: ["png", "jpg", "gif", "bmp", "avif"],
+  gif: ["png", "jpg", "webp", "bmp", "avif"],
+  bmp: ["png", "jpg", "webp", "gif", "avif"],
+  avif: ["png", "jpg", "webp", "gif", "bmp"],
+  svg: ["png", "jpg", "webp"],
 };
 
 // Client-side image conversion function
@@ -45,7 +45,7 @@ const convertImage = async (file, targetFormat) => {
         ctx.drawImage(img, 0, 0);
 
         // For AVIF and WebP, use higher quality
-        const quality = ['avif', 'webp'].includes(targetFormat) ? 0.95 : 0.9;
+        const quality = ["avif", "webp"].includes(targetFormat) ? 0.95 : 0.9;
 
         canvas.toBlob(
           (blob) => {
@@ -65,22 +65,22 @@ const convertImage = async (file, targetFormat) => {
 
 export default function ImageFileConverter() {
   const [file, setFile] = useState(null);
-  const [targetFormat, setTargetFormat] = useState('');
+  const [targetFormat, setTargetFormat] = useState("");
   const [converting, setConverting] = useState(false);
 
   const onDrop = useCallback((acceptedFiles) => {
     if (acceptedFiles.length > 0) {
       const file = acceptedFiles[0];
-      const extension = file.name.split('.').pop()?.toLowerCase() || '';
+      const extension = file.name.split(".").pop()?.toLowerCase() || "";
 
       if (Object.keys(supportedConversions).includes(extension)) {
         setFile(file);
-        setTargetFormat('');
+        setTargetFormat("");
       } else {
         toast({
           variant: "destructive",
           title: "Unsupported file format",
-          description: "Please upload a supported image format."
+          description: "Please upload a supported image format.",
         });
       }
     }
@@ -90,8 +90,17 @@ export default function ImageFileConverter() {
     onDrop,
     maxFiles: 1,
     accept: {
-      'image/*': ['.png', '.jpg', '.jpeg', '.webp', '.gif', '.bmp', '.avif', '.svg']
-    }
+      "image/*": [
+        ".png",
+        ".jpg",
+        ".jpeg",
+        ".webp",
+        ".gif",
+        ".bmp",
+        ".avif",
+        ".svg",
+      ],
+    },
   });
 
   const handleConvert = async () => {
@@ -99,12 +108,12 @@ export default function ImageFileConverter() {
 
     setConverting(true);
     try {
-      const fileExtension = file.name.split('.').pop()?.toLowerCase();
+      const fileExtension = file.name.split(".").pop()?.toLowerCase();
       const blob = await convertImage(file, targetFormat);
 
       // Create download link
       const url = window.URL.createObjectURL(blob);
-      const a = document.createElement('a');
+      const a = document.createElement("a");
       a.href = url;
       a.download = `converted.${targetFormat}`;
       document.body.appendChild(a);
@@ -114,36 +123,41 @@ export default function ImageFileConverter() {
 
       toast({
         title: "Conversion successful",
-        description: "Your file has been converted and downloaded."
+        description: "Your file has been converted and downloaded.",
       });
     } catch (error) {
       toast({
         variant: "destructive",
         title: "Conversion failed",
-        description: error instanceof Error ? error.message : "There was an error converting your file. Please try again."
+        description:
+          error instanceof Error
+            ? error.message
+            : "There was an error converting your file. Please try again.",
       });
     } finally {
       setConverting(false);
     }
   };
 
-  const fileExtension = file?.name.split('.').pop()?.toLowerCase();
+  const fileExtension = file?.name.split(".").pop()?.toLowerCase();
   const availableFormats = fileExtension
     ? supportedConversions[fileExtension]
     : [];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background to-background/95 p-8">
+    <div className="min-h-full pb-20 bg-gradient-to-br from-background to-background/95 p-8">
       <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h1 className="text-4xl font-bold text-center mb-8">Image Converter</h1>
+          <h1 className="text-4xl font-bold text-center mb-8">
+            Image Converter
+          </h1>
           <p className="text-center text-muted-foreground mb-12">
-            Convert your images between different formats with ease.
-            Support for PNG, JPG, WebP, GIF, BMP, AVIF, and SVG.
+            Convert your images between different formats with ease. Support for
+            PNG, JPG, WebP, GIF, BMP, AVIF, and SVG.
           </p>
         </motion.div>
 
@@ -154,7 +168,9 @@ export default function ImageFileConverter() {
               className={`
                 border-2 border-dashed rounded-lg p-8 text-center cursor-pointer
                 transition-colors duration-200
-                ${isDragActive ? "border-primary bg-primary/5" : "border-border"}
+                ${
+                  isDragActive ? "border-primary bg-primary/5" : "border-border"
+                }
               `}
             >
               <input {...getInputProps()} />
@@ -231,9 +247,7 @@ export default function ImageFileConverter() {
           className="mt-8 text-center text-sm text-muted-foreground"
         >
           <p>Supported formats:</p>
-          <p>
-            PNG ↔ JPG ↔ WebP ↔ GIF ↔ BMP ↔ AVIF ↔ SVG
-          </p>
+          <p>PNG ↔ JPG ↔ WebP ↔ GIF ↔ BMP ↔ AVIF ↔ SVG</p>
         </motion.div>
       </div>
     </div>

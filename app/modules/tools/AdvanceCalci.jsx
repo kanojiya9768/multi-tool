@@ -298,8 +298,8 @@ export default function ComplexCalculator() {
     }, [currentInput, currentOperation, firstOperand, waitingForSecondOperand, memory])
   
     return (
-      <div className={`min-h-screen p-4 ${theme === 'light' ? 'bg-white text-black' : 'bg-gray-800 text-white'}`}>
-        <Card className="w-full max-w-4xl mx-auto mt-10">
+      <div className={`min-h-full pb-20 bg-gradient-to-br from-background to-background/95 p-8`}>
+        <Card className="w-full max-w-4xl mx-auto">
           <CardHeader>
             <CardTitle className="text-2xl font-bold primary-text-gradient">Complex Calculator</CardTitle>
           </CardHeader>

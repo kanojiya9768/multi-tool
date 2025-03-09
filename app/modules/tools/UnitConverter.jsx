@@ -98,8 +98,8 @@ const UnitConverter = () => {
   const units = Object.keys(conversionFactors[category]);
 
   return (
-    <div className="h-full flex flex-col items-center justify-center">
-      <div className="max-w-md w-full p-6 bg-white rounded-lg shadow-2xl">
+    <div className="min-h-full pb-20 bg-gradient-to-br from-background to-background/95 p-8">
+      <div className="max-w-4xl mx-auto">
         <h1 className="text-2xl font-bold mb-6 text-center primary-text-gradient">Unit Converter</h1>
         <div className="space-y-4">
           <div>
