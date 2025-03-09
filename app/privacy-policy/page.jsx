@@ -8,19 +8,23 @@ export default function page() {
         <title>Privacy Policy | Multi Tool</title>
         <meta
           name="description"
-          content="Read our privacy policy to learn how we handle your data."
+          content="Read our Privacy Policy to understand how we collect, protect, and use your data. Learn about our commitment to privacy and security."
+        />
+        <meta
+          name="keywords"
+          content="privacy policy, data protection, user privacy, data security, personal data protection, terms of service, website privacy"
         />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Privacy Policy | My Website" />
+        <meta property="og:title" content="Privacy Policy | Multi Tool" />
         <meta
           property="og:description"
-          content="Read our Privacy Policy to understand how we collect and protect your data."
+          content="Learn about how Multi Tool handles your personal data, ensures privacy, and implements security measures."
         />
         <meta
           property="og:url"
           content="https://multi-tool-eosin.vercel.app/privacy-policy"
         />
-         <link
+        <link
           rel="canonical"
           href="https://multi-tool-eosin.vercel.app/privacy-policy"
         />
@@ -28,18 +32,17 @@ export default function page() {
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
-              "@context": "https://multi-tool-eosin.vercel.app/",
+              "@context": "https://schema.org",
               "@type": "WebPage",
-              name: "Privacy Policy",
+              name: "Privacy Policy | Multi Tool",
               description:
-                "Learn how we protect your privacy and handle your personal data.",
+                "Learn how we protect your privacy and handle your personal data, and get an overview of our privacy practices.",
               url: "https://multi-tool-eosin.vercel.app/privacy-policy",
               mainEntityOfPage:
                 "https://multi-tool-eosin.vercel.app/privacy-policy",
             }),
           }}
         />
-       
       </Head>
 
       <section className="bg-white mt-24 py-6 rounded container mx-auto px-4 sm:px-10 lg:px-28">
