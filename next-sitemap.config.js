@@ -23,6 +23,7 @@ module.exports = {
       "trivia-quiz",
       "image-converter",
       "advanced-image-converter",
+      "image-to-pdf-converter"
     ];
 
 
