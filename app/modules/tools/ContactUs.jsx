@@ -20,8 +20,18 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Mail, Phone, User, Globe, MessageSquare, Send } from "lucide-react";
+import {
+  Mail,
+  Phone,
+  User,
+  Globe,
+  MessageSquare,
+  Send,
+  LoaderIcon,
+} from "lucide-react";
 import { motion } from "framer-motion";
+import { useTransition } from "react";
+import axios from "axios";
 
 const reasons = [
   "General Inquiry",
@@ -169,6 +179,7 @@ const ContactIllustration = () => (
 );
 
 export default function ContactUs() {
+  const [isPending, startTransition] = useTransition();
   const form = useForm({
     resolver: zodResolver(insertContactMessageSchema),
     mode: "onChange",
@@ -183,8 +194,19 @@ export default function ContactUs() {
   });
 
   const onSubmit = (data) => {
-    console.log(data);
+    startTransition(async () => {
+      try {
+        const response = await axios.post("/api/send-contact", data);
+        if(response?.status==200){
+          
+          form.reset();
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    });
   };
+  
 
   return (
     <div className="bg-gradient-to-br from-background to-background/95 container mx-auto">
@@ -348,10 +370,20 @@ export default function ContactUs() {
                 >
                   <Button
                     type="submit"
-                    className="w-full bg-primary hover:bg-primary/90 primary-gradient"
+                    className={`w-full bg-primary hover:bg-primary/90 primary-gradient`}
+                    disabled={isPending}
                   >
-                    <Send className="w-4 h-4 mr-2" />
-                    Send Message
+                    {!isPending ? (
+                      <>
+                        <Send className="w-4 h-4 mr-2" />
+                        Send Message
+                      </>
+                    ) : (
+                      <>
+                        <LoaderIcon className="animate-spin w-4 h-4 mr-2" />
+                        Sending
+                      </>
+                    )}
                   </Button>
                 </motion.div>
               </form>
