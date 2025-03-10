@@ -1,8 +1,8 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Camera, Eye, FilePlus, Trash } from "lucide-react";
+import { Eye, FilePlus, Trash } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -23,50 +23,11 @@ export function ImagesToPDFConverter() {
   const [isGeneratingPDF, setIsGeneratingPDF] = useState(false);
   const [customMargins, setCustomMargins] = useState(10);
   const [orientation, setOrientation] = useState("portrait");
-  const videoRef = useRef(null);
-  const canvasRef = useRef(null);
-
-  useEffect(() => {
-    const constraints = { video: true };
-    navigator.mediaDevices
-      .getUserMedia(constraints)
-      .then((stream) => {
-        if (videoRef.current) {
-          videoRef.current.srcObject = stream;
-        }
-      })
-      .catch((err) => console.error("Error accessing camera: ", err));
-  }, []);
 
   const handleImageSelection = (event) => {
     const files = event.target.files;
     if (files) {
       setImages((prevImages) => [...prevImages, ...Array.from(files)]);
-    }
-  };
-
-  const capturePhoto = () => {
-    if (videoRef.current && canvasRef.current) {
-      const context = canvasRef.current.getContext("2d");
-      if (context) {
-        canvasRef.current.width = videoRef.current.videoWidth;
-        canvasRef.current.height = videoRef.current.videoHeight;
-        context.drawImage(
-          videoRef.current,
-          0,
-          0,
-          canvasRef.current.width,
-          canvasRef.current.height
-        );
-        canvasRef.current.toBlob((blob) => {
-          if (blob) {
-            const file = new File([blob], "captured-image.png", {
-              type: "image/png",
-            });
-            setImages((prevImages) => [...prevImages, file]);
-          }
-        });
-      }
     }
   };
 
@@ -186,23 +147,6 @@ export function ImagesToPDFConverter() {
           />
         </div>
 
-        <div className="mb-6 sm:hidden">
-          <Label className="block text-sm font-medium text-gray-700">
-            Capture Live Photo
-          </Label>
-          <div className="mt-1 flex flex-col gap-5 items-center space-x-4">
-            <video
-              ref={videoRef}
-              autoPlay
-              playsInline
-              className="w-full h-full rounded-lg shadow-md"
-            />
-            <canvas ref={canvasRef} className="hidden" />
-            <Button onClick={capturePhoto} variant="outline" className="mt-4">
-              <Camera className="mr-2 h-4 w-4" /> Capture
-            </Button>
-          </div>
-        </div>
 
         {images?.length > 0 && (
           <div className="mb-6">

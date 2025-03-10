@@ -2,6 +2,8 @@ import { Category } from "./modules/constant/Category";
 import { HeroSection } from "./modules/constant/HeroSection";
 import { PopularTools } from "./modules/constant/Polulartools";
 import ContactUs from "./modules/tools/ContactUs";
+import QRCodeGenerator from "./modules/tools/QrGenerator";
+import QRReader from "./modules/tools/QrReader";
 
 
 export const metadata = {
@@ -43,6 +45,7 @@ export default function Home() {
       <PopularTools />
       <Category />
       <ContactUs />
+      {/* <QRReader /> */}
     </div>
   );
 }

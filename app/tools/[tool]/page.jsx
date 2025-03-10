@@ -8,6 +8,7 @@ import ImageFileConverter from "@/app/modules/tools/ImageTypeConverter";
 import { JokeFetcher } from "@/app/modules/tools/JokeFectcher";
 import LoanCalculator from "@/app/modules/tools/LoanCalci";
 import PasswordGenerator from "@/app/modules/tools/PasswordGenerater";
+import QRCodeGenerator from "@/app/modules/tools/QrGenerator";
 import TriviaQuiz from "@/app/modules/tools/Quiz";
 import TextCaseConverter from "@/app/modules/tools/TextCaseConverter";
 import TodoApp from "@/app/modules/tools/Todo";
@@ -64,7 +65,8 @@ const page = ({ params }) => {
     "trivia-quiz": <TriviaQuiz />,
     "image-converter": <ImageFileConverter />,
     "advanced-image-converter": <AdvancedImageFileConverter />,
-    "image-to-pdf-converter" : <ImagesToPDFConverter />
+    "image-to-pdf-converter" : <ImagesToPDFConverter />,
+    "qr-code-generator" : <QRCodeGenerator />
   };
 
   return (

@@ -11,6 +11,7 @@ import {
   Laugh,
   Drama,
   Dock,
+  QrCode,
 } from "lucide-react";
 
 export const categories = [
@@ -88,6 +89,14 @@ export const categories = [
         icon: Image,
       },
       {
+        name: "Advance Image Converter",
+        description:
+          "Multi Tool converts your image files online. Amongst many others, we support PNG, JPG, WebP, GIF, BMP, AVIF, and SVG. and you can also edit you image file before converting to other type.",
+        popularity: 99,
+        slug: "advanced-image-converter",
+        icon: Image,
+      },
+      {
         name: "Image to PDF Converter",
         description:
           "Easily convert your image files into a PDF document. Supports multiple image formats including PNG, JPG, JPEG, and more.",
@@ -143,6 +152,20 @@ export const categories = [
         popularity: 87,
         slug: "trivia-quiz",
         icon: Drama,
+      },
+    ],
+  },
+  {
+    title: "Qr Tools",
+    icon: QrCode,
+    tools: [
+      {
+        name: "QR Code Generator",
+        description:
+          "A tool to easily create and customize QR codes for URLs, text, and more. Perfect for quickly sharing information digitally.",
+        popularity: 99,
+        slug: "qr-code-generator",
+        icon: QrCode,
       },
     ],
   },
