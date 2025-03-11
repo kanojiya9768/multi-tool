@@ -5,17 +5,17 @@ import Link from "next/link";
 
 export function Footer() {
   return (
-    <section>
+    <section className="!bg-black">
       {/* Footer */}
-      <footer className="py-12 relative overflow-hidden px-4 sm:px-10 lg:px-20">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/40 via-purple-500/5 to-blue-500/5 animate-gradient" />
+      <footer className="py-12 relative  overflow-hidden px-4 sm:px-10 lg:px-20">
+        <div className="absolute inset-0" />
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
             >
-              <h3 className="font-bold text-lg mb-4 bg-clip-text text-transparent primary-gradient">
+              <h3 className="font-bold text-lg mb-4   primary-text-gradient">
                 DevTools Hub
               </h3>
               <p className="text-muted-foreground">
@@ -27,7 +27,9 @@ export function Footer() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
             >
-              <h4 className="font-bold mb-4">Categories</h4>
+              <h4 className="font-bold mb-4  primary-text-gradient">
+                Categories
+              </h4>
               <ul className="space-y-2">
                 {categories.map((category, index) => (
                   <li key={index}>
@@ -46,7 +48,9 @@ export function Footer() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
             >
-              <h4 className="font-bold mb-4">Resources</h4>
+              <h4 className="font-bold mb-4  primary-text-gradient">
+                Resources
+              </h4>
               <ul className="space-y-2">
                 <li>
                   <a
@@ -79,7 +83,7 @@ export function Footer() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
             >
-              <h4 className="font-bold mb-4">Legal</h4>
+              <h4 className="font-bold mb-4  primary-text-gradient">Legal</h4>
               <ul className="space-y-2">
                 <li>
                   <Link

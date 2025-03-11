@@ -8,12 +8,12 @@ import { Button } from "@/components/ui/button";
 
 export const Navbar = () => {
   return (
-    <nav className="border-b backdrop-blur-sm bg-background/80 fixed w-full z-50 ">
+    <nav className="border-b backdrop-blur-sm bg-black fixed w-full z-50 ">
       <div className="container mx-auto px-4 sm:px-10 lg:px-20 py-4 flex items-center justify-between">
         <Link href="/">
           <img src="/logo.png" alt="logo-multitool" className="w-[230px]" />
         </Link>
-        <div className="md:flex hidden items-center gap-6 w-1/3 capitalize">
+        <div className="lg:flex hidden items-center gap-6 w-1/3 capitalize text-lg">
           <Link href={"/privacy-policy"} className="primary-text-gradient">
             Privacy Policy
           </Link>
@@ -35,9 +35,9 @@ export const Navbar = () => {
           >
             <Button
               size="lg"
-              className="primary-gradient hover:opacity-90 relative"
+              className="primary-gradient hover:opacity-90 relative text-[17px]"
             >
-              Explore <ArrowRight className="h-4 w-4" />
+              Explore <ArrowRight className="h-5 w-5" />
               <Link href={"/tools/explore"} className="absolute inset-0"></Link>
             </Button>
           </motion.div>

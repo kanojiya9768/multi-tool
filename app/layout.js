@@ -2,6 +2,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { Navbar } from "./modules/layouts/Navbar";
 import { Footer } from "./modules/layouts/Footer";
+import { Particle_Animation } from "./modules/constant/BgParticleAnimation";
 
 // Load custom fonts
 const geistSans = localFont({
@@ -54,7 +55,10 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
       >
         <Navbar />
-        <main className="bg-white flex-1">{children}</main>
+        <main className="bg-black flex-1 relative">
+          <Particle_Animation />
+          {children}
+        </main>
         <Footer />
       </body>
     </html>

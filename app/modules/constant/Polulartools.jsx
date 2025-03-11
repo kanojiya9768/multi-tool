@@ -34,13 +34,13 @@ const item = {
 
 export function PopularTools() {
   return (
-    <section className="py-20 container mx-auto px-4 sm:px-10 lg:px-20">
+    <section className="py-20 container mx-auto px-4 sm:px-10 lg:px-20 isolate">
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="text-3xl font-bold mb-8 flex items-center gap-2"
+        className="text-3xl font-bold mb-8 flex items-center gap-2 primary-text-gradient "
       >
-        <Star className="h-6 w-6 text-yellow-500" /> Popular Tools
+        <Star className="h-6 w-6 text-yellow-500 " /> Popular Tools
       </motion.h2>
       <motion.div
         variants={container}
@@ -50,13 +50,15 @@ export function PopularTools() {
       >
         {popularTools.map((tool, index) => (
           <motion.div key={index} variants={item}>
-            <Card className="group hover:shadow-lg transition-all duration-300 hover:scale-[1.02]">
+            <Card className="group hover:shadow-lg duration-300 hover:bg-white hover:text-black transition-all bg-black text-white cursor-pointer">
               <CardHeader>
                 <div className="flex items-center gap-2">
                   <tool.icon className="h-5 w-5" />
                   <CardTitle>{tool.name}</CardTitle>
                 </div>
-                <CardDescription className="line-clamp-1">{tool.description}</CardDescription>
+                <CardDescription className="line-clamp-1">
+                  {tool.description}
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <Link href={`/tools/${tool.slug}`}>

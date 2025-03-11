@@ -210,7 +210,7 @@ export default function ContactUs() {
   };
 
   return (
-    <div className="bg-gradient-to-br from-background to-background/95 container mx-auto">
+    <div className="container mx-auto">
       <div className="container mx-auto px-4 py-12  sm:px-10 lg:px-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left side - Animated Illustration */}

@@ -27,11 +27,11 @@ export const HeroSection = () => {
 
 
   return (
-    <section className="mt-20">
+    <section className="mt-20 bg-[url('/hero-bg.png')] bg-cover bg-center">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="mx-auto  px-4 py-20 text-center bg-gradient-to-br from-primary/40 via-purple-500/5 to-blue-500/5 animate-gradient z-10 flex flex-col justify-center items-center  relative overflow-hidden"
+        className="mx-auto  px-4 py-20 text-center z-10 flex flex-col justify-center items-center  relative overflow-hidden"
       >
         <motion.h1
           initial={{ opacity: 0, y: 20 }}

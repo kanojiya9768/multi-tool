@@ -35,7 +35,7 @@ export function SearchTools() {
 
   const tabActiveCategory = useMemo(() => {
     return searchParams?.get("ct");
-  }, [searchParams]);  
+  }, [searchParams]);
 
   // Function to handle the search query change
   const handleSearch = (e) => {
@@ -53,15 +53,15 @@ export function SearchTools() {
 
   return (
     <div
-      className="bg-white min-h-screen pb-20 bg-gradient-to-br from-background to-background/95 p-8 mt-20"
+      className="container  mx-auto min-h-screen pb-20 p-8 mt-20 px-4 sm:px-14 lg:px-28"
       id="BrowseBycategory"
     >
-      <div className="container mx-auto relative z-10 px-4 sm:px-10 lg:px-20">
+      <div className=" relative z-10">
         <div>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-3xl font-bold mb-8 capitalize"
+            className="text-3xl font-bold mb-8 capitalize primary-text-gradient "
           >
             Browse All tools
           </motion.h2>
@@ -73,14 +73,17 @@ export function SearchTools() {
               value={searchQuery}
               onChange={handleSearch}
               placeholder="Search for tools..."
-              className="p-3 rounded-full w-2/3 md:w-1/2 bg-white shadow-md focus:outline-none focus:ring-2 focus:ring-primary transition-all"
+              className="p-3 rounded-full w-full md:w-1/2 bg-black text-white shadow-xl transition-all border-2 border-gray-500 focus:border-white focus:outline-none focus:ring-2 focus:ring-primary transition-all"
             />
           </div>
         </div>
 
-        <Tabs defaultValue={tabActiveCategory || "All"} className="space-y-8 w-full">
+        <Tabs
+          defaultValue={tabActiveCategory || "All"}
+          className="space-y-8 w-full"
+        >
           <div className="w-full overflow-auto">
-            <TabsList className="bg-background/50 backdrop-blur-sm flex min-w-max">
+            <TabsList className="bg-black backdrop-blur-sm flex min-w-max">
               {/* Map over categories and add an "All" tab */}
               <TabsTrigger
                 value="All"
@@ -93,7 +96,7 @@ export function SearchTools() {
                 <TabsTrigger
                   key={index}
                   value={category.title}
-                  className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-primary data-[state=active]:to-purple-600 data-[state=active]:text-white"
+                  className="data-[state=active]:bg-gradient-to-r text-sm sm:text-[17px] text-white data-[state=active]:from-primary data-[state=active]:to-purple-600 data-[state=active]:text-white"
                 >
                   <category.icon className="h-4 w-4 mr-2" />
                   {category.title}
@@ -113,7 +116,7 @@ export function SearchTools() {
               {filteredTools.length > 0 ? (
                 filteredTools.map((tool, toolIndex) => (
                   <motion.div key={toolIndex} variants={item}>
-                    <Card className="group hover:shadow-lg transition-all duration-300 hover:scale-[1.02]">
+                    <Card className="group hover:shadow-lg duration-300 hover:bg-white hover:text-black transition-all bg-black text-white cursor-pointer">
                       <CardHeader>
                         <div className="flex items-center gap-2">
                           <tool.icon className="h-5 w-5" />
@@ -156,11 +159,13 @@ export function SearchTools() {
                   )
                   .map((tool, toolIndex) => (
                     <motion.div key={toolIndex} variants={item}>
-                      <Card className="group hover:shadow-lg transition-all duration-300 hover:scale-[1.02]">
+                      <Card className="group hover:shadow-lg duration-300 hover:bg-white hover:text-black transition-all bg-black text-white cursor-pointer">
                         <CardHeader>
                           <div className="flex items-center gap-2">
                             <tool.icon className="h-5 w-5" />
-                            <CardTitle>{tool.name}</CardTitle>
+                            <CardTitle className="!text-base sm:!text-2xl">
+                              {tool.name}
+                            </CardTitle>
                           </div>
                           <CardDescription className="line-clamp-1">
                             {tool.description}
