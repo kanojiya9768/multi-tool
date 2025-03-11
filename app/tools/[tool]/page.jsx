@@ -9,6 +9,7 @@ import { JokeFetcher } from "@/app/modules/tools/JokeFectcher";
 import LoanCalculator from "@/app/modules/tools/LoanCalci";
 import PasswordGenerator from "@/app/modules/tools/PasswordGenerater";
 import QRCodeGenerator from "@/app/modules/tools/QrGenerator";
+import QRReaderComponent from "@/app/modules/tools/QrReader";
 import TriviaQuiz from "@/app/modules/tools/Quiz";
 import TextCaseConverter from "@/app/modules/tools/TextCaseConverter";
 import TodoApp from "@/app/modules/tools/Todo";
@@ -66,11 +67,12 @@ const page = ({ params }) => {
     "image-converter": <ImageFileConverter />,
     "advanced-image-converter": <AdvancedImageFileConverter />,
     "image-to-pdf-converter" : <ImagesToPDFConverter />,
-    "qr-code-generator" : <QRCodeGenerator />
+    "qr-code-generator" : <QRCodeGenerator />,
+    "qr-code-reader" : <QRReaderComponent />
   };
 
   return (
-    <div className="pt-32 w-full h-full">
+    <div className="mt-20 w-full h-full isolate">
       {Tools[tool] ? (
         Tools[tool]
       ) : (

@@ -228,7 +228,7 @@ export default function AdvancedImageFileConverter() {
     files.length > 0 ? ((currentFileIndex + 1) / files.length) * 100 : 0;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background to-background/95 p-8">
+    <div className="min-h-screen bg-gradient-to-br from-background to-background/95 p-8 grid place-items-center">
       <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

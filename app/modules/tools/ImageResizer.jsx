@@ -95,7 +95,7 @@ export default function ImageResizer() {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-white p-4">
+    <div className="min-h-screen bg-gradient-to-br from-background to-background/95 p-8 grid place-items-center">
       <div className="max-w-md w-full">
         <div className="mb-4">
           <Label htmlFor="image-upload" className="block text-sm font-medium text-gray-700 primary-text-gradient">

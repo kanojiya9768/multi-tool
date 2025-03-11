@@ -88,7 +88,7 @@ export default function LoanCalculator() {
   const amortizationSchedule = generateAmortizationSchedule(view);
 
   return (
-    <div className="min-h-full pb-20 bg-gradient-to-br from-background to-background/95 p-8">
+    <div className="min-h-screen bg-gradient-to-br from-background to-background/95 p-8 grid place-items-center">
       <Card className="w-full max-w-4xl mx-auto">
         <CardHeader>
           <CardTitle className="text-2xl font-bold primary-text-gradient">

@@ -1,23 +1,29 @@
-"use client"
-import { useState } from 'react'
-import QRCode from 'qrcode'
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Download } from "lucide-react"
+"use client";
+import { useState } from "react";
+import QRCode from "qrcode";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Download } from "lucide-react";
 
 export default function QRCodeGenerator() {
-  const [text, setText] = useState('')
-  const [qrCodeUrl, setQrCodeUrl] = useState('')
-  const [size, setSize] = useState(256)
-  const [foregroundColor, setForegroundColor] = useState('#000000')
-  const [backgroundColor, setBackgroundColor] = useState('#FFFFFF')
+  const [text, setText] = useState("");
+  const [qrCodeUrl, setQrCodeUrl] = useState("");
+  const [size, setSize] = useState(256);
+  const [foregroundColor, setForegroundColor] = useState("#000000");
+  const [backgroundColor, setBackgroundColor] = useState("#FFFFFF");
 
   const generateQRCode = async () => {
     if (!text) {
-      alert('Please enter some text to generate a QR code.')
-      return
+      alert("Please enter some text to generate a QR code.");
+      return;
     }
     try {
       const url = await QRCode.toDataURL(text, {
@@ -26,32 +32,36 @@ export default function QRCodeGenerator() {
           dark: foregroundColor,
           light: backgroundColor,
         },
-      })
-      setQrCodeUrl(url)
+      });
+      setQrCodeUrl(url);
     } catch (error) {
-      console.error('Error generating QR code:', error)
+      console.error("Error generating QR code:", error);
     }
-  }
+  };
 
   const downloadQRCode = () => {
     if (!qrCodeUrl) {
-      alert('Please generate a QR code first.')
-      return
+      alert("Please generate a QR code first.");
+      return;
     }
-    const link = document.createElement('a')
-    link.href = qrCodeUrl
-    link.download = 'qr-code.png'
-    document.body.appendChild(link)
-    link.click()
-    document.body.removeChild(link)
-  }
+    const link = document.createElement("a");
+    link.href = qrCodeUrl;
+    link.download = "qr-code.png";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   return (
-    <div className="pb-20 container mx-auto px-4 sm:px-10 lg:px-28">
+    <div className="min-h-screen bg-gradient-to-br from-background to-background/95 p-8 grid place-items-center">
       <Card className="w-full max-w-md mx-auto">
         <CardHeader>
-          <CardTitle>QR Code Generator</CardTitle>
-          <CardDescription>Generate QR codes with custom size and colors.</CardDescription>
+          <CardTitle className="primary-text-gradient">
+            QR Code Generator
+          </CardTitle>
+          <CardDescription>
+            Generate QR codes with custom size and colors.
+          </CardDescription>
         </CardHeader>
         <CardContent>
           <div className="mb-4">
@@ -102,12 +112,19 @@ export default function QRCodeGenerator() {
               className="w-full"
             />
           </div>
-          <Button onClick={generateQRCode} className="w-full mb-4">
+          <Button
+            onClick={generateQRCode}
+            className="w-full mb-4 primary-gradient"
+          >
             Generate QR Code
           </Button>
           {qrCodeUrl && (
             <div className="mb-4">
-              <img src={qrCodeUrl} alt="QR Code" className="w-full h-auto rounded-lg" />
+              <img
+                src={qrCodeUrl}
+                alt="QR Code"
+                className="w-full h-auto rounded-lg"
+              />
             </div>
           )}
           {qrCodeUrl && (
@@ -119,5 +136,5 @@ export default function QRCodeGenerator() {
         </CardContent>
       </Card>
     </div>
-  )
+  );
 }

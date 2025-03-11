@@ -219,7 +219,7 @@ export default function AgeCalculator() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="min-h-full pb-20 bg-gradient-to-br from-background to-background/95 p-8"
+      className="min-h-screen bg-gradient-to-br from-background to-background/95 p-8 grid place-items-center"
     >
       <Card className="w-full max-w-4xl mx-auto">
         <CardHeader>

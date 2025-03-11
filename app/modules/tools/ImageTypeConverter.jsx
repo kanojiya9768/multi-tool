@@ -145,7 +145,7 @@ export default function ImageFileConverter() {
     : [];
 
   return (
-    <div className="min-h-full pb-20 bg-gradient-to-br from-background to-background/95 p-8">
+    <div className="min-h-screen bg-gradient-to-br from-background to-background/95 p-8 grid place-items-center">
       <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

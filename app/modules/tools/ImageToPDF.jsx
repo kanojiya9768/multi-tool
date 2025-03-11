@@ -1,7 +1,6 @@
 "use client";
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Eye, FilePlus, Trash } from "lucide-react";
 import {
   Dialog,
@@ -15,6 +14,7 @@ import {
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import jsPDF from "jspdf";
+import { useDropzone } from "react-dropzone"; // Import useDropzone hook from react-dropzone
 
 export function ImagesToPDFConverter() {
   const [images, setImages] = useState([]);
@@ -24,12 +24,13 @@ export function ImagesToPDFConverter() {
   const [customMargins, setCustomMargins] = useState(10);
   const [orientation, setOrientation] = useState("portrait");
 
-  const handleImageSelection = (event) => {
-    const files = event.target.files;
-    if (files) {
-      setImages((prevImages) => [...prevImages, ...Array.from(files)]);
-    }
-  };
+  // Use react-dropzone hook to handle image uploads
+  const { getRootProps, getInputProps } = useDropzone({
+    accept: "image/*", // Accept only image files
+    onDrop: (acceptedFiles) => {
+      setImages((prevImages) => [...prevImages, ...acceptedFiles]); // Add accepted files to images state
+    },
+  });
 
   const compressAndResizeImage = (image, quality = 0.85) => {
     return new Promise((resolve, reject) => {
@@ -40,13 +41,12 @@ export function ImagesToPDFConverter() {
         const canvas = document.createElement("canvas");
         const ctx = canvas.getContext("2d");
 
-        const maxWidth = 1200; // Max width for resizing (adjust as necessary for quality)
-        const maxHeight = 900; // Max height for resizing (adjust as necessary for quality)
+        const maxWidth = 1200;
+        const maxHeight = 900;
 
         let width = img.width;
         let height = img.height;
 
-        // Resize image only if larger than the maxWidth or maxHeight
         if (width > maxWidth || height > maxHeight) {
           const ratio = Math.min(maxWidth / width, maxHeight / height);
           width = width * ratio;
@@ -58,14 +58,13 @@ export function ImagesToPDFConverter() {
 
         ctx?.drawImage(img, 0, 0, width, height);
 
-        // Use JPEG for better file size optimization
         const compressedImage = canvas.toDataURL("image/jpeg", quality);
 
-        resolve(compressedImage); // Return the compressed image as a base64 string
+        resolve(compressedImage);
       };
 
       img.onerror = (err) => {
-        reject(err); // In case the image loading fails
+        reject(err);
       };
     });
   };
@@ -92,7 +91,7 @@ export function ImagesToPDFConverter() {
           }
 
           pdf.addImage(imgData, "JPEG", customMargins, y, imgWidth, imgHeight);
-          y += imgHeight + 10; // Adding space between images
+          y += imgHeight + 10;
           resolve();
         };
       });
@@ -125,11 +124,12 @@ export function ImagesToPDFConverter() {
   };
 
   return (
-    <div className="pb-20 container mx-auto px-4 sm:px-10 lg:px-28">
-      <h1 className="text-2xl font-bold text-white primary-text-gradient">
-        Images to PDF Converter
-      </h1>
-      <main className="flex-grow container mx-auto bg-white rounded-lg mt-8 animate__animated animate__fadeIn">
+    <div className="min-h-screen bg-gradient-to-br from-background to-background/95 p-8 grid place-items-center">
+      <main className="flex-grow container mx-auto bg-white rounded-lg mt-8 animate__animated animate__fadeIn px-4 sm:px-10 lg:px-20 space-y-4">
+        <h1 className="text-2xl font-bold text-white primary-text-gradient">
+          Images to PDF Converter
+        </h1>
+
         <div className="mb-6">
           <Label
             htmlFor="images"
@@ -137,16 +137,16 @@ export function ImagesToPDFConverter() {
           >
             Select Images
           </Label>
-          <Input
-            id="images"
-            type="file"
-            accept="image/*"
-            multiple
-            className="mt-1"
-            onChange={handleImageSelection}
-          />
-        </div>
 
+          {/* Dropzone for file upload */}
+          <div
+            {...getRootProps()}
+            className="border-2 border-dashed border-gray-300 p-4 text-center rounded-lg cursor-pointer"
+          >
+            <input {...getInputProps()} id="images" />
+            <p className="text-gray-600">Drag & Drop or Click to Select Images</p>
+          </div>
+        </div>
 
         {images?.length > 0 && (
           <div className="mb-6">

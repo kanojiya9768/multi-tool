@@ -24,7 +24,8 @@ module.exports = {
       "image-converter",
       "advanced-image-converter",
       "image-to-pdf-converter",
-      "r-code-generator"
+      "r-code-generator",
+      "qr-code-reader"
     ];
 
 

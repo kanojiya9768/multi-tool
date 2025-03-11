@@ -197,7 +197,7 @@ export default function TodoApp() {
   };
 
   return (
-    <div className="min-h-full pb-20 bg-gradient-to-br from-background to-background/95 p-8">
+    <div className="min-h-screen bg-gradient-to-br from-background to-background/95 p-8 grid place-items-center">
       <Card className="max-w-4xl w-full mx-auto">
         <CardHeader>
           <CardTitle className="text-3xl font-bold mb-6 text-center primary-text-gradient">

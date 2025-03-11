@@ -167,6 +167,14 @@ export const categories = [
         slug: "qr-code-generator",
         icon: QrCode,
       },
+      {
+        name: "QR Code Reader",
+        description:
+          "A tool to scan or upload and decode QR codes effortlessly. Perfect for quickly accessing URLs, texts, and other embedded information from QR codes.",
+        popularity: 70,
+        slug: "qr-code-reader",
+        icon: QrCode,
+      },
     ],
   },
 ];

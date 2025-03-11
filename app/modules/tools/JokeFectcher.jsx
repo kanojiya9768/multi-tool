@@ -84,7 +84,7 @@ export const JokeFetcher = ()=> {
   }
 
   return (
-    <div className={`flex items-center justify-center min-h-screen ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'} min-h-full pb-20 bg-gradient-to-br from-background to-background/95 p-8`}>
+    <div className="min-h-screen bg-gradient-to-br from-background to-background/95 p-8 grid place-items-center">
       <Card className="w-full max-w-4xl mx-auto">
         <CardHeader className="flex justify-between items-center">
           <CardTitle className="text-2xl font-bold primary-text-gradient">Random Joke Fetcher</CardTitle>
