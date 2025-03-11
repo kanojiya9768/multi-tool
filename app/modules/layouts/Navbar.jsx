@@ -41,7 +41,7 @@ export const Navbar = () => {
             </Button>
             <Button
               size="lg"
-              className="primary-gradient hover:opacity-90 relative sm:text-[17px] sm:block hidden"
+              className="primary-gradient hover:opacity-90 relative sm:text-[17px] sm:flex hidden"
             >
               Explore <ArrowRight className="h-5 w-5" />
               <Link href={"/tools/explore"} className="absolute inset-0"></Link>
