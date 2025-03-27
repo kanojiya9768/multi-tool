@@ -9,12 +9,7 @@ const OfflinePage = () => {
   return (
     <div>
       <Navbar />
-      <div class="text-center fade-in bg-black h-screen flex flex-col justify-center items-center text-white">
-        <img
-          src="/offline.jpg"
-          alt="logo-multitool"
-          className="sm:w-[230px] w-[150px]"
-        />
+    <div class="text-center fade-in bg-black h-screen flex flex-col justify-center items-center text-white">
         <h1 class="text-4xl font-bold mb-2">You are Offline</h1>
         <p class="text-lg mb-6">
           It seems you have lost your internet connection. Please check your
