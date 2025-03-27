@@ -1,9 +1,9 @@
 const CACHE_NAME = "offline-cache-v1";
 const urlsToCache = [
-  "/", // Cache the root page
-  "/offline", // Cache the offline fallback page
-  "/_next/static/chunks/app/layout.js", // Cache critical JS (adjust after build)
-  "/_next/static/css/styles.css", // Cache styles if applicable (adjust path)
+  "/", 
+  "/offline.gif",
+  "/_next/static/chunks/app/layout.js", 
+  "/_next/static/css/styles.css",
 ];
 
 // Install: Cache the specified resources
